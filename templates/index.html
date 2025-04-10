@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+    <!-- Fullscreen Welcome Animation -->
+    <div id="welcome-screen">
+        <h1>WELCOME</h1>
+        <h2>to Sign Language Detection</h2>
+        
+    </div>
+
+    <!-- Header Section -->
+    <header id="header">
+        <div id="title-container">
+            <h1>Sign Language Detection</h1>
+            <p>Breaking barriers with technology 🤟</p>
+        </div>
+        <div id="logo-container">
+            <img src="{{ url_for('static', filename='assets/logo1.jpg') }}" alt="Website Logo" id="logo">
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav id="navbar">
+        <ul class="nav-links">
+            <li><a href="/" class="active">🏠 Home</a></li>
+            <li><a href="/model">🤖 Try the Model</a></li>
+            <li><a href="/team">🧑‍🤝‍🧑 Meet the Team</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="intro">
+        <div class="content-box">
+            <div class="left-content">
+                <h2>About the Project</h2>
+                <p>This project uses machine learning to recognize and interpret sign language gestures in real-time.  
+                   Our goal is to make communication more inclusive and accessible for everyone.</p>
+            </div>
+
+            <div class="right-content">
+                <h2>Did You Know?</h2>
+                <p>"Sign language: Where hands do the talking, and the world listens!" 🤟😃</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <h2>Project Resources</h2>
+        <div class="resource-links">
+            <a href="{{ url_for('static', filename='Sign_Language_Presentation.pdf') }}" target="_blank" class="btn">📂 View Project PPT</a>
+            <a href="{{ url_for('static', filename='Sign_Language_Report.pdf') }}" target="_blank" class="btn">📄 View Project Report</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sign Language Detection Project</p>
+    </footer>
+
+    <script>
+        // Hide welcome screen after animation
+        setTimeout(() => {
+            document.getElementById("welcome-screen").style.display = "none";
+        }, 1000);
+
+        // Highlight active navigation tab
+        const links = document.querySelectorAll(".nav-links a");
+        links.forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+</html>

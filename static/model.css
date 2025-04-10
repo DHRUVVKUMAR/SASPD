@@ -1,0 +1,282 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #3D007A, #6A0DAD); /* Deep Purple Gradient */
+    color: white;
+    text-align: center;
+}
+
+/* Welcome Animation */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeOut 4s ease-in-out forwards;
+}
+
+#welcome-screen h1 {
+    font-size: 60px;
+    color: #FFD700; /* Yellow */
+    margin: 0;
+    animation: scaleText 2s ease-in-out;
+}
+
+#welcome-screen p {
+    font-size: 24px;
+    color: white;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+/* Header Section */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 12px 12px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Title & Tagline */
+#title-container {
+    text-align: left;
+}
+
+#title-container h1 {
+    font-size: 30px;
+    margin: 0;
+    color: #FFD700; /* Yellow */
+}
+
+#title-container p {
+    font-size: 14px;
+    margin-top: 3px;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Logo */
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    border-radius: 20%;
+    background: white;
+    padding: 5px;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
+    animation: logoBounce 2s infinite alternate ease-in-out;
+}
+
+/* Separator Line */
+.separator {
+    width: 95%;
+    margin: 8px auto;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation Section */
+#navbar {
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+    margin-top: -10px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #6A0DAD; /* Purple */
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.nav-links li a.active {
+    background: #FFD700; /* Yellow */
+    transform: scale(1.05);
+    color: black;
+}
+
+/* Model Detection Section */
+#detection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Reduced gap */
+    margin: 40px auto; /* Reduced margin */
+    padding: 20px;
+    max-width: 1000px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Camera Box */
+.camera-box {
+    flex: 1;
+    background: linear-gradient(to bottom, #4B0082, #3D007A); /* Deep Purple */
+    padding: 20px; /* Reduced padding */
+    border-radius: 14px;
+    box-shadow: 0px 4px 18px rgba(128, 0, 128, 0.6);
+    transition: transform 0.3s ease-in-out;
+    width: 50%; /* Reduced width */
+    max-width: 450px; /* Smaller max-width */
+}
+
+.camera-box:hover {
+    transform: scale(1.05);
+}
+
+#video {
+    width: 100%;
+    border-radius: 14px;
+    border: 3px solid #FFD700; /* Yellow Border */
+}
+
+/* Detection Result Box */
+.detection-result {
+    flex: 1;
+    text-align: center;
+    padding: 20px; /* Reduced padding */
+    background: linear-gradient(to bottom, #4B0082, #3D007A); /* Deep Purple */
+    border-radius: 14px;
+    box-shadow: 0px 4px 14px rgba(138, 43, 226, 0.5);
+    transition: transform 0.3s ease-in-out;
+    width: 70%; /* Increased width */
+    max-width: 700px; /* Wider detection box */
+}
+
+.detection-result:hover {
+    transform: scale(1.05);
+}
+
+.detection-result h2 {
+    color: #FFD700; /* Gold */
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+#output {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 0px 8px rgba(218, 112, 214, 0.8);
+    animation: pulseGlow 2s infinite alternate;
+}
+
+/* Footer */
+footer {
+    background: black;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #FFD700; /* Yellow */
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8); } /* Yellow Glow */
+    100% { text-shadow: 0px 0px 20px rgba(255, 215, 0, 1); }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    #detection-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .camera-box, .detection-result {
+        width: 90%;
+        max-width: none;
+        margin-bottom: 20px;
+    }
+}
+
+/* PDF Resource Box */
+.pdf-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px; /* Reduced padding */
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+    margin-bottom: 30px;
+    width: 80%; /* Smaller width */
+    max-width: 400px; /* Smaller box */
+}
+
+.pdf-box h3 {
+    font-size: 20px;
+    color: #FFD700; /* Yellow */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Inner Box for Yellow Color */
+.pdf-inner-box {
+    background-color: #FFD700; /* Yellow */
+    padding: 5px; /* Reduced padding to make it smaller */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+    max-width: 350px; /* Smaller inner box width */
+    margin: 0 auto; /* Center align the inner box */
+}
+
+/* PDF Button */
+.pdf-button {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.pdf-button:hover {
+    background-color: rgba(255, 215, 0, 0.7); /* Lighter Yellow on Hover */
+    box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.8);
+}

@@ -1,0 +1,211 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #4B0082, #6A0DAD); /* Dark Purple Gradient */
+    color: white;
+    text-align: center;
+}
+
+/* Welcome Animation */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #6A0DAD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeOut 4s ease-in-out forwards;
+}
+
+#welcome-screen h1 {
+    font-size: 60px;
+    color: #FFD700; /* Yellow */
+    margin: 0;
+    animation: scaleText 2s ease-in-out;
+}
+
+#welcome-screen p {
+    font-size: 24px;
+    color: white;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+/* Header Section */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 12px 12px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Left: Title & Tagline */
+#title-container {
+    text-align: left;
+}
+
+#title-container h1 {
+    font-size: 30px;
+    margin: 0;
+    color: #FFD700; /* Yellow */
+}
+
+#title-container p {
+    font-size: 14px;
+    margin-top: 3px;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Right: Logo */
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    border-radius: 20%;
+    background: white;
+    padding: 5px;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
+    animation: logoBounce 2s infinite alternate ease-in-out;
+}
+
+/* Separator Line */
+.separator {
+    width: 95%;
+    margin: 8px auto;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation Section */
+#navbar {
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+    margin-top: -10px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #6A0DAD; /* Purple */
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.nav-links li a.active {
+    background: #FFD700; /* Yellow */
+    transform: scale(1.05);
+    color: black;
+}
+
+/* Two-column layout */
+.content-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Left: Project Description */
+.left-content {
+    width: 50%;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Right: Inspirational Quote */
+.right-content {
+    width: 45%;
+    text-align: center;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Resources Section */
+#resources {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#resources h2 {
+    margin-bottom: 15px;
+    color: #FFD700; /* Yellow */
+}
+
+/* Resource Links */
+.resource-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.resource-links .btn {
+    text-decoration: none;
+    color: black;
+    background: #FFD700; /* Yellow */
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 3px 8px rgba(255, 255, 255, 0.3);
+}
+
+.resource-links .btn:hover {
+    background: #32CD32; /* Green */
+    transform: scale(1.1);
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.5);
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}

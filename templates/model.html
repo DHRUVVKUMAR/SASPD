@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Language Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='model.css') }}">
+</head>
+<body>
+  <header id="header">
+    <div id="title-container">
+      <h1>Sign Language Detection</h1>
+      <p>Breaking barriers with technology 🤟</p>
+    </div>
+    <div id="logo-container">
+      <img src="{{ url_for('static', filename='assets/logo1.jpg') }}" alt="Website Logo" id="logo" />
+    </div>
+  </header>
+
+  <nav id="navbar">
+    <ul class="nav-links">
+      <li><a href="/">🏠 Home</a></li>
+      <li><a href="/model" class="active">🤖 Try the Model</a></li>
+      <li><a href="/team">🧑‍🤝‍🧑 Meet the Team</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="team-heading">✨ Try our Amazing Model [ SIGN LANGUAGE DETECTION ] ✨</h2>
+
+  <section id="detection-container">
+    <div class="camera-box">
+      <video id="video" autoplay playsinline muted></video>
+    </div>
+
+    <div class="right-section">
+      <div class="pdf-box">
+        <h3>📘 Learn the Signs</h3>
+        <div class="pdf-inner-box">
+          <a href="{{ url_for('static', filename='signs.pdf') }}" target="_blank" class="pdf-button">
+            📄 View Sign Gestures PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="detection-result">
+        <h2>Detected Sign:</h2>
+        <div id="output">Detecting...</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sign Language Detection Project</p>
+  </footer>
+
+  <!-- JS Script -->
+  <script>
+    const video = document.getElementById('video');
+    const output = document.getElementById('output');
+
+    async function setupWebcam() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+      } catch (error) {
+        console.error('Webcam error:', error);
+        output.innerText = "Webcam access denied or not found.";
+      }
+    }
+
+    async function captureFrame() {
+      if (video.readyState === 4) {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        canvas.toBlob(async (blob) => {
+          const formData = new FormData();
+          formData.append('frame', blob, 'frame.jpg');
+
+          try {
+            const response = await fetch('/predict', { method: 'POST', body: formData });
+            const result = await response.json();
+            output.innerText = result.prediction || "No hands detected";
+          } catch (error) {
+            console.error("Prediction error:", error);
+            output.innerText = "Prediction failed.";
+          }
+        }, 'image/jpeg');
+      }
+    }
+
+    setupWebcam();
+    setInterval(captureFrame, 1500);
+  </script>
+</body>
+</html>
