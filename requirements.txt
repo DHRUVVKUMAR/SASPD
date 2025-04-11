@@ -3,4 +3,5 @@ numpy==1.26.4
 opencv-python==4.8.1.78
 mediapipe==0.10.21
 playsound==1.2.2
-gunicorn==21.2.0  # For running the app in production
+gunicorn==21.2.0 
+sklearn==1.4.0  # For running the app in production
